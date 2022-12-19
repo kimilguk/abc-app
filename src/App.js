@@ -3,24 +3,11 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>안녕하세요 리액트 프로그래밍^^</p>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    //기존 내용을 지우고 신규 JSX 코딩을 추가한다.(아래)
+    <div>
+      <img src="http://wwww.easyspub.co.kr/images/logo_footer.png" />
+      <div>자바스크립트 안에 HTML태그를 사용할 수 있다.</div>
     </div>
   );
 }
-
 export default App;
