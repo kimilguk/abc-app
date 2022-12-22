@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 function BtnEventComponentFunc(props) {
     //state예약어대신 useState함수로 변수초기화(아래)
     const [state,setState] = useState({count:0});
-    const increaseCount = () => {
+    const clickEvent = () => {
         //state 변경 let count = this.state.count;
         setState(prevState => ({
             count: prevState.count+1,
@@ -15,7 +15,7 @@ function BtnEventComponentFunc(props) {
     return (
         <div>
             <p>카운트: {state.count}</p>
-            <button onClick={increaseCount}>카운트 증가</button>
+            <button onClick={clickEvent}>카운트 증가</button>
         </div>
     );
 }

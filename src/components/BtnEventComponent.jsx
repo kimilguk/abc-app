@@ -8,9 +8,9 @@ class BtnEventComponent extends Component {
         this.state = {count: 0};
     }
     componentWillMount() {
-        this.increaseCount = this.increaseCount.bind(this);
+        this.clickEvent = this.clickEvent.bind(this);
     }
-    increaseCount() {
+    clickEvent() {
         //state 변경 let count = this.state.count;
         this.setState(prevState => ({
             count: prevState.count+1,
@@ -44,7 +44,7 @@ class BtnEventComponent extends Component {
         return (
             <div>
                 <p>카운트: {this.state.count}</p>
-                <button onClick={this.increaseCount}>카운트 증가</button>
+                <button onClick={this.clickEvent}>카운트 증가</button>
             </div>
         );
     }
