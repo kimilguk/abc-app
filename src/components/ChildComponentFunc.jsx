@@ -1,12 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 function ChildComponent(props) {
+    //super(props);//부모Component클래스의 props 객체 초기화
+    //state예약어대신 useState함수로 변수초기화(아래)
+    const [state,setState] = useState({loading:true,formData:'no data'});
+    function clickEvent() {
+        const data = 'new data';
+        const {formData} = state;//초기formData변수만 바인딩
+        //setState()리액트 내장함수로 state 변경
+        setState({
+            loading: false,
+            formData: data + formData,
+        });
+        //this.state.loading은 현재 true 이다. 클래스가 아니라서 this가 필요없다.
+        console.log('loading 변수값', state.loading);
+        //이후 호출될 render() 함수에서 this.state.loading은 false로 동기화된다.
+    }
+    useEffect(()=>{
+        //this.clickEvent = this.clickEvent.bind(this);
+        //4초 후에 clickEvent 함수를 호출(아래)
+        setTimeout(clickEvent, 4000);
+    },[]);//componentWillMount() == ,[] 두번째 인자는 기능이 같다. 즉, 1번만 실행
+    //[state] state가 변경 될 때마다 즉, 4초마다 실행된다.(변경 의존 조건이라한다.)
     const {
         name, boolValue, numValue, arrayValue, objValue, nodeValue, funcValue,
     } = props;
     const message = boolValue?'불린 값 있음':'불린 값 없음';
     return (
         <div>
+            {/*주석,state 데이터는 this.state로 접근 가능하다.*/}
+            <p>
+                로딩중: {String(state.loading)}
+                결과: {state.formData}
+            </p>
             기준 함수 컴포넌트 추가 {name}<br/>
             {message} {numValue}<br/>
             {arrayValue} {objValue.id}<br/>
