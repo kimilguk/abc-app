@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 function BtnEventComponentFunc(props) {
-    //state예약어대신 useState함수로 변수초기화(아래)
-    const [state,setState] = useState({count:0});
+    //state예약어대신 useState함수로 변수초기화(아래)-수정
+    const [state,setState] = useState({count:props.count});
     const clickEvent = () => {
         //state 변경 let count = this.state.count;
         setState(prevState => ({
@@ -10,8 +10,9 @@ function BtnEventComponentFunc(props) {
         }));
     }
     useEffect(()=>{
-        
-    },[]);//componentWillMount() == ,[] 두번째 인자는 기능이 같다. 즉, 1번만 실행
+        console.log('순서:useEffect', props.count);
+        setState({count: props.count});//수정
+    },[props.count]);//componentWillMount() == ,[] 두번째 인자는 기능이 같다. 즉, 1번만 실행
     return (
         <div>
             <p>카운트: {state.count}</p>
