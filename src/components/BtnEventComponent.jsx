@@ -7,13 +7,13 @@ class BtnEventComponent extends Component {
         super(props);
         //state 초기화-수정
         this.state = {count: props.count};
+        this.clickEvent = this.clickEvent.bind(this);
         /* getDerivedStateFromProps 사용시 */
         /* this.state = {}; 
         this.clickEvent = this.clickEvent.bind(this); */
     }
     componentWillMount() {
         console.log('순서-componentWillMount');
-        this.clickEvent = this.clickEvent.bind(this);
     }
     clickEvent() {
         //state 변경 let count = this.state.count;
