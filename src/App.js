@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import ChildComponent from './components/ChildComponentFunc'; //외부 컴포넌트 불러오기
-import BtnEventComponent from './components/BtnEventComponent';
+import BtnEventComponent from './components/BtnEventComponentFunc';
 import React, { useState } from 'react';
 function App() {
   const funcAdd = (x,y) => {return x+y;};
