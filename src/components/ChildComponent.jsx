@@ -9,10 +9,10 @@ class ChildComponent extends Component {
             loading: true,
             formData: 'no data',
         };
-    }
-    componentWillMount() { //클래스 마운트(렌더링) 전 실행
         //이후 콜백(clickEvent) 함수 내부에서 state변수를 사용하기 위해 bind(this)로 바인딩
         this.clickEvent = this.clickEvent.bind(this);
+    }
+    componentWillMount() { //클래스 마운트(렌더링) 전 실행
         //4초 후에 clickEvent 함수를 호출(아래)
         setTimeout(this.clickEvent, 4000);
     }

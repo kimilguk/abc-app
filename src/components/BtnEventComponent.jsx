@@ -6,9 +6,10 @@ class BtnEventComponent extends Component {
         super(props);
         //state 초기화
         this.state = {count: 0};
+        this.clickEvent = this.clickEvent.bind(this);//this를 바인딩하면, clickEvent함수에서 this를 사용할 수 있다.
     }
     componentWillMount() {
-        this.clickEvent = this.clickEvent.bind(this);
+        
     }
     clickEvent() {
         //state 변경 let count = this.state.count;
