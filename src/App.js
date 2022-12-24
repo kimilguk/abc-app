@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import ChildComponent from './components/ChildComponent'; //외부 컴포넌트 불러오기
+import ChildComponent from './components/ChildComponentFunc'; //외부 컴포넌트 불러오기
 import BtnEventComponent from './components/BtnEventComponent';
 import React, { useState } from 'react';
 function App() {
