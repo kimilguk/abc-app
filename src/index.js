@@ -3,13 +3,26 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import RouterMenu from './RouterMenu';
+import { BrowserRouter, Routes, Route } from "react-router-dom";//npm install react-router-dom
+import KakaoMapComponent from './components/KakaoMapComponent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<RouterMenu />} />
+        <Route path="/app" element={<App />} />
+        <Route path="/kakaomap" element={<KakaoMapComponent />} />
+      </Routes>
+  </BrowserRouter>
+  /*
   <React.StrictMode>
     <App />
   </React.StrictMode>
+  */
 );
+
 /* var rootDiv = document.getElementById('root');
 var firstDiv = document.createElement('div');
 var img = document.createElement('img');

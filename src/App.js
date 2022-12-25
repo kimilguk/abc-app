@@ -3,6 +3,7 @@ import './App.css';
 import ChildComponent from './components/ChildComponentFunc'; //외부 컴포넌트 불러오기
 import BtnEventComponent from './components/BtnEventComponentFunc';
 import React, { useState } from 'react';
+import RouterMenu from './RouterMenu';
 function App() {
   const funcAdd = (x,y) => {return x+y;};
   //state예약어대신 useState함수로 변수초기화(아래)
@@ -16,6 +17,7 @@ function App() {
   return (
     //기존 내용을 지우고 신규 JSX 코딩을 추가한다.(아래)
     <div>
+      <RouterMenu />
       <BtnEventComponent count={state.count} />
       <button onClick={resetEvent}>{state.count + 10}으로 초기화</button>
       <img src="http://wwww.easyspub.co.kr/images/logo_footer.png" />
