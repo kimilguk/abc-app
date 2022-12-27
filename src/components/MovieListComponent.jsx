@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import RouterMenu from '../RouterMenu';
-class KakaoMapComponent extends Component {
+class MovieListComponent extends Component {
     constructor(props) {
         super(props);
     }
@@ -48,8 +48,8 @@ class KakaoMapComponent extends Component {
     }
 }
 
-KakaoMapComponent.propTypes = {
+MovieListComponent.propTypes = {
 
 };
 
-export default KakaoMapComponent;
+export default MovieListComponent;

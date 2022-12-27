@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import RouterMenu from './RouterMenu';
 import { BrowserRouter, Routes, Route } from "react-router-dom";//npm install react-router-dom
-import KakaoMapComponent from './components/KakaoMapComponent';
+import MovieListComponent from './components/MovieListComponent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +13,7 @@ root.render(
       <Routes>
         <Route path="/" element={<RouterMenu />} />
         <Route path="/app" element={<App />} />
-        <Route path="/kakaomap" element={<KakaoMapComponent />} />
+        <Route path="/movie" element={<MovieListComponent />} />
       </Routes>
   </BrowserRouter>
   /*

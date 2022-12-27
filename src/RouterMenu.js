@@ -6,8 +6,8 @@ function RouterMenu(props) {
             <Link to="/app">
                 <button id="btnHome">리액트 App 문법 학습</button>
             </Link>
-            <Link to="/kakaomap">
-                <button id="btnHome">클래스형 카카오 맵</button>
+            <Link to="/movie">
+                <button id="btnHome">클래스형 일별박스오피스</button>
             </Link>
         </div>
     );
