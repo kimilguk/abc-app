@@ -12,6 +12,7 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
+    "//": "set PORT=포트번호 && 추가하여 포트번호 변경 가능[리눅스에서는export~사용]",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
