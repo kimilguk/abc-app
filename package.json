@@ -9,11 +9,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "sass": "^1.57.1",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "//": "set PORT=포트번호 && 추가하여 포트번호 변경 가능[리눅스에서는export~사용], 아래처럼 서버를 2개 실행도 가능",
-    "//": "concurrently --kill-others-on-fail \"npm run start\" \"cd ./server && node server.js\" 참고,npm install concurrently 설치필요",
+    "//": "set PORT=포트번호 && 추가하여 포트번호 변경 가능[리눅스에서는export~사용], 아래처럼 서버를 2개 실행도 가능, concurrently --kill-others-on-fail \"npm run start\" \"cd ./server && node server.js\" 참고,npm install concurrently 설치필요",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
