@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import RouterMenu from './RouterMenu';
 import { BrowserRouter, Routes, Route } from "react-router-dom";//npm install react-router-dom
 import MovieListComponent from './components/MovieListComponent';
-
+//import Dashboard from './dashboard/Dashboard';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
@@ -18,6 +18,7 @@ root.render(
   </BrowserRouter>
   /*
   <React.StrictMode>
+    <Dashboard />
     <App />
   </React.StrictMode>
   */
