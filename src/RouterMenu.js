@@ -4,10 +4,13 @@ function RouterMenu(props) {
     return (
         <div>
             <Link to="/app">
-                <button id="btnHome">리액트 App 문법 학습</button>
+                <button>리액트 App 문법 학습</button>
             </Link>
             <Link to="/movie">
-                <button id="btnHome">클래스형 일별박스오피스</button>
+                <button>클래스형 일별박스오피스</button>
+            </Link>
+            <Link to="/dashboard">
+                <button>대시보드 템플릿</button>
             </Link>
         </div>
     );

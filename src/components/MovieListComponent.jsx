@@ -41,7 +41,6 @@ class MovieListComponent extends Component {
         ];
         return (
             <div>
-                <RouterMenu />
                 {memberList.map((member) => <div key={member.email}>{member.name}</div>)}
             </div>
         );

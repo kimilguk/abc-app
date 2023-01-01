@@ -17,7 +17,6 @@ function App() {
   return (
     //기존 내용을 지우고 신규 JSX 코딩을 추가한다.(아래)
     <div>
-      <RouterMenu />
       <BtnEventComponent count={state.count} />
       <button onClick={resetEvent}>{state.count + 10}으로 초기화</button>
       <img src="http://wwww.easyspub.co.kr/images/logo_footer.png" />
