@@ -1,0 +1,8 @@
+/* 변수명 대신 . 을 사용하여 클래스 이름을 생성, css속성 font-size = JSX코드 fontSize */
+.btnStyle {
+    color:white;
+    background:teal;
+    padding:.375rem .75rem;
+    border-radius:.25rem;
+    font-size:1rem;
+}
