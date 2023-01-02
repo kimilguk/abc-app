@@ -40,7 +40,9 @@ class MovieListComponent extends Component {
             { name: '사용자', email: 'user@test.com'},
         ];
         return (
-            /* {memberList.map((member) => <div key={member.email}>{member.name}</div>)} */
+            
+            /* {memberList.map((member) => <div key={member.email}>{member.name}</div>)} */ 
+
             <div className="container">
                 <h1><a href="#">리액트 프로그래밍</a></h1>{/* <!--#은 가상 링크 값이다.--> */}
                 <div className="row">
@@ -100,7 +102,7 @@ class MovieListComponent extends Component {
                     </li>
                     </ul>
                 </nav>
-            </div>
+            </div>            
         );
     }
 }
