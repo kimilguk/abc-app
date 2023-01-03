@@ -31,7 +31,7 @@ class MovieListComponent extends Component {
                     //console.log(response.json());
                     return response.json();//프로미스 객체로 리턴 반환 된다.(아래 then 으로)
                 }
-            ).then(data => { //도트 연산자로 함수를 이어서 편리하게 사용하는 방식을 체인 함수라고 한다.
+            ).then(data => { //도트 연산자로 함수를 이어서 편리하게 사용하는 방식을 도트 체인함수라고 한다.
                 console.log(data['boxOfficeResult']['dailyBoxOfficeList']);//크롬 브라우저에서 json데이터 확인
                 this.setState(prevState => ({ //json 데이터는 키 값으로 데이터를 분리 할 수 있다.
                     movieList: data['boxOfficeResult']['dailyBoxOfficeList'],
