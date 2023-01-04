@@ -5,18 +5,24 @@ class MovieListComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            movieList: [
-            { rank: '1', movieNm: '아바타: 물의 길', audiCnt: '100,000', audiAcc: '5,000,000', openDt: '2022-12-25'},
-            { rank: '2', movieNm: '아바타: 물의 길', audiCnt: '100,000', audiAcc: '5,000,000', openDt: '2022-12-25'},
-            ],
+            movieList: [],
+            keyword: '2022-12-25',
         };
+        this.clickEvent = this.clickEvent.bind(this);
+        this.changeEvent = this.changeEvent.bind(this);
     }
-    
-    componentWillMount() {
-        
+    changeEvent(e) {
+        /* console.log("id: ", e.target.id);
+        this.setState(() => ({ //화면변경
+            [e.target.id]: e.target.value, //keyword: e.target.value; 보다 향상
+        })); */
+        this.state.keyword = e.target.value; //js 값변경
+        //this.getData();
     }
-
-    componentDidMount() {
+    clickEvent() {
+        this.getData();
+    }
+    getData() {
         /* Rest API 통신 기본서식, Promise 객체를 반환
         fetch(url, options)
             .then((response) => console.log("response:", response))
@@ -25,7 +31,8 @@ class MovieListComponent extends Component {
                 API호출이 성공했을 경우(then)에는 응답(response) 객체를 resolve(성공-답)하고
                 실패했을 경우(catch)에는 예외(error) 객체를 reject(실패-거부)합니다.
         */
-        const URL = 'http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20221225';
+        const searchDate = (this.state.keyword).replace(/-/g,"");//정규표현식 변경조건: /시작...끝/g(글로벌-문서전체)
+        const URL = 'http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt='+searchDate;
         fetch(URL)
             .then((response) => {
                     //console.log(response.json());
@@ -39,6 +46,13 @@ class MovieListComponent extends Component {
                 return data;
             });
     }
+    componentWillMount() {
+        
+    }
+
+    componentDidMount() {
+        this.getData();
+    }
 
     componentWillReceiveProps(nextProps) {
 
@@ -49,11 +63,11 @@ class MovieListComponent extends Component {
     }
 
     componentWillUpdate(nextProps, nextState) {
-
+        
     }
 
     componentDidUpdate(prevProps, prevState) {
-
+        
     }
 
     componentWillUnmount() {
@@ -82,8 +96,8 @@ class MovieListComponent extends Component {
                 <br/>
                 <form action="./movie-list.html" method="GET" className="col-3">
                     <div className="input-group">
-                        <input type="date" defaultValue="2022-12-25" name="keyword" className="form-control" aria-label="Text input with segmented dropdown button" />
-                        <button type="submit" className="btn btn-outline-secondary">검색</button>
+                        <input type="date" id="keyword" onChange={this.changeEvent} defaultValue={this.state.keyword} name="keyword" className="form-control" aria-label="Text input with segmented dropdown button" />
+                        <button type="button" onClick={this.clickEvent} className="btn btn-outline-secondary">검색</button>
                         <button type="button" className="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                         <span className="visually-hidden">Toggle Dropdown</span>
                         </button>
