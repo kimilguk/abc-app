@@ -73,7 +73,10 @@ class MovieListComponent extends Component {
     componentWillUnmount() {
 
     }
-
+    addComma(num) {
+        var regexp = /\B(?=(\d{3})+(?!\d))/g;
+        return num.toString().replace(regexp, ',');
+    }
     render() {
         const memberList = [
             { name: '김일국', email: 'admin@test.com'},
@@ -131,8 +134,8 @@ class MovieListComponent extends Component {
                         <tr key={movie.rank}>
                             <th scope="row">{movie.rank}</th>
                             <td><a href="movie-read.html">{movie.movieNm}</a></td>
-                            <td>{movie.audiCnt}</td>
-                            <td>{movie.audiAcc}</td>
+                            <td>{this.addComma(movie.audiCnt)}</td>
+                            <td>{this.addComma(movie.audiAcc)}</td>
                             <td>{movie.openDt}</td>
                         </tr>)
                     }
