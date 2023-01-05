@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import RouterMenu from './RouterMenu';
 import { BrowserRouter, Routes, Route } from "react-router-dom";//npm install react-router-dom
 import MovieListComponent from './components/MovieListComponent';
+import MovieReadComponent from './components/MovieReadComponent';
 import Dashboard from './dashboard/Dashboard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -15,6 +16,7 @@ root.render(
       <Routes>
         <Route path="/app" element={<App />} />
         <Route path="/movie" element={<MovieListComponent />} />
+        <Route path="/movie/read" element={<MovieReadComponent />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
   </BrowserRouter>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 class MovieListComponent extends Component {
     constructor(props) {
@@ -133,7 +134,23 @@ class MovieListComponent extends Component {
                     {this.state.movieList.map((movie) => 
                         <tr key={movie.rank}>
                             <th scope="row">{movie.rank}</th>
-                            <td><a href="movie-read.html">{movie.movieNm}</a></td>
+                            <td>{/* <a href="movie-read.html">{movie.movieNm}</a> */}
+                            <Link 
+                                to={`/movie/read`}
+                                state = {{ 
+                                    rank: movie.rank,
+                                    movieNm: movie.movieNm,
+                                    audiCnt: movie.audiAcc,
+                                    audiAcc: movie.audiAcc,
+                                    salesAmt: movie.salesAmt,
+                                    salesAcc: movie.salesAcc,
+                                    openDt: movie.openDt,
+                                    keyword: this.state.keyword,
+                                }}
+                                >
+                                    {movie.movieNm}
+                                </Link>
+                            </td>
                             <td>{this.addComma(movie.audiCnt)}</td>
                             <td>{this.addComma(movie.audiAcc)}</td>
                             <td>{movie.openDt}</td>
