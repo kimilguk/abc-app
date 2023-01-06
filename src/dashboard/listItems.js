@@ -11,6 +11,7 @@ import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { Link } from "react-router-dom";
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+
 const StyledLink = styled(Link)`
     text-decoration: none;
     &:focus, &:hover, &:visited, &:link, &:active {
@@ -18,6 +19,7 @@ const StyledLink = styled(Link)`
         color: inherit;
     }
 `;
+
 export const mainListItems = (
   <React.Fragment>
     <StyledLink to="/">
