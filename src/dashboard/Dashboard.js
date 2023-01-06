@@ -21,6 +21,10 @@ import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
+import MovieListComponent from '../components/MovieListComponent';
+import MovieReadComponent from '../components/MovieReadComponent';
+import App from '../App';
+import { BrowserRouter, Routes, Route } from "react-router-dom";//npm install react-router-dom
 
 function Copyright(props) {
   return (
@@ -162,38 +166,54 @@ function DashboardContent() {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
+              <BrowserRouter>
+                  <Routes>
+                    <Route path="/app" element={<App />} />
+                    <Route path="/" element={<MovieListComponent />} />
+                    <Route path="/movie/read" element={<MovieReadComponent />} />
+                    <Route path="/chart" element={
+                      <Grid item xs={12} md={8} lg={9}>
+                        <Paper
+                          sx={{
+                            p: 2,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: 240,
+                          }}
+                        >
+                          <Chart />
+                        </Paper>
+                      </Grid>
+                    } />
+                    <Route path="/typography" element={
+                      <Grid item xs={12} md={4} lg={3}>
+                        <Paper
+                          sx={{
+                            p: 2,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: 240,
+                          }}
+                        >
+                          <Deposits />
+                        </Paper>
+                      </Grid>
+                    } />
+                    <Route path="/table" element={
+                      <Grid item xs={12}>
+                        <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                          <Orders />
+                        </Paper>
+                      </Grid>
+                    } />
+                  </Routes>
+              </BrowserRouter>
               {/* Chart */}
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  <Chart />
-                </Paper>
-              </Grid>
+              
               {/* Recent Deposits */}
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  <Deposits />
-                </Paper>
-              </Grid>
+              
               {/* Recent Orders */}
-              <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Orders />
-                </Paper>
-              </Grid>
+              
             </Grid>
             <Copyright sx={{ pt: 4 }} />
           </Container>

@@ -11,21 +11,21 @@ import Dashboard from './dashboard/Dashboard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-      <RouterMenu />
+/*   <BrowserRouter>
+      <Dashboard />
       <Routes>
         <Route path="/app" element={<App />} />
         <Route path="/movie" element={<MovieListComponent />} />
         <Route path="/movie/read" element={<MovieReadComponent />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-  </BrowserRouter>
-  /*
+  </BrowserRouter> */
+  
   <React.StrictMode>
     <Dashboard />
-    <App />
+    {/* <App /> */}
   </React.StrictMode>
-  */
+ 
 );
 
 /* var rootDiv = document.getElementById('root');
