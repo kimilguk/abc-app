@@ -9,39 +9,57 @@ import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
-
+import { Link } from "react-router-dom";
+import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+        color: inherit;
+    }
+`;
 export const mainListItems = (
   <React.Fragment>
+    <StyledLink to="/">
     <ListItemButton>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+      <ListItemText primary="일별박스오피스" />
     </ListItemButton>
+    </StyledLink>
+    <StyledLink to="/App">
     <ListItemButton>
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
-      <ListItemText primary="Orders" />
+      <ListItemText primary="리액트 학습" />
     </ListItemButton>
+    </StyledLink>
+    <StyledLink to="/chart">
     <ListItemButton>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary="Customers" />
+      <ListItemText primary="챠트 컴포넌트" />
     </ListItemButton>
+    </StyledLink>
+    <StyledLink to="/typography">
     <ListItemButton>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
-      <ListItemText primary="Reports" />
+      <ListItemText primary="타이포그래피 컴포넌트" />
     </ListItemButton>
+    </StyledLink>
+    <StyledLink to="/table">
     <ListItemButton>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
-      <ListItemText primary="Integrations" />
+      <ListItemText primary="테이블 컴포넌트" />
     </ListItemButton>
+    </StyledLink>
   </React.Fragment>
 );
 
