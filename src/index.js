@@ -22,7 +22,9 @@ root.render(
   </BrowserRouter> */
   
   <React.StrictMode>
-    <Dashboard />
+    <BrowserRouter>
+      <Dashboard />
+    </BrowserRouter>
     {/* <App /> */}
   </React.StrictMode>
  
