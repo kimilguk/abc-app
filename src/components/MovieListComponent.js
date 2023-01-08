@@ -1,20 +1,22 @@
 //import React, { Component } from 'react';
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function MovieListComponent() {
+    const location = useLocation(); //함수형 컴포넌트 전용(클래스 형 X)
+    console.log(location.state);
     const [state,setState] = useState(
         {
             movieList: [],
-            keyword: '2022-12-25',
+            keyword: (location.state)?location.state.keyword:'2022-12-25',
         }
     );
     const changeEvent = (e) => {
         state.keyword = e.target.value; //js 값변경
     }; //위 처럼 람다식 으로 표현이 가능하다. 또는 그냥 아래 처럼 function 서식을 사용한다.
     function clickEvent () {
-        if(state.keyword) getData();//함수형은 1번 검색 한 후 state 객체가 사라지기 때문에 if조건처리
+        getData();//함수형은 1번 검색 한 후 state.keyword 객체가 사라지기 때문에 if조건처리
     };
     function getData() {
         const searchDate = (state.keyword).replace(/-/g,"");//정규표현식 변경조건: /시작...끝/g(글로벌-문서전체)
@@ -27,6 +29,7 @@ function MovieListComponent() {
                 console.log(data['boxOfficeResult']['dailyBoxOfficeList']);//크롬 브라우저에서 json데이터 확인
                 setState(prevState => ({ //json 데이터는 키 값으로 데이터를 분리 할 수 있다.
                     movieList: data['boxOfficeResult']['dailyBoxOfficeList'],
+                    keyword : state.keyword, //검색 날짜를 추가하면 if(state.keyword) 조건이 필요없어진다.
                 }));
                 return data;
             });
@@ -35,7 +38,7 @@ function MovieListComponent() {
         this.getData();
     } */
     useEffect(()=>{
-        if(state.keyword) getData();//함수형은 1번 검색 한 후 state 객체가 사라지기 때문에 if조건처리
+        getData();//함수형은 1번 검색 한 후 state.keyword 객체가 사라지기 때문에 if조건처리
     },[]); //생명주기 함수대신 useEffectr()함수사용,[] 의미는 1번만 실행
     
     function addComma(num) {

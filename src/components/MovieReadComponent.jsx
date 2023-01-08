@@ -97,13 +97,13 @@ function MovieReadComponent(props) {
               </div>
             </div>{/* <!--col 1개 컬럼 col text-center 으로 가운데 정렬 가능--> */}
             <div className="row col-12">{/* <!--col-12숫자를 변경하면서 화면12분할(그리드 시스템)에 대해서 확인 한다.--> */}
-              <Link to={-1}><button className="btn btn-primary col-12">목록 페이지</button></Link>
-              {/* <Link
-                to={`/movie`}
+              {/* <Link to={-1}><button className="btn btn-primary col-12">목록 페이지</button></Link> */}
+              <Link
+                to={'/'}
                 state = {{ 
                     keyword: location.state.keyword,
                 }}
-              ><button className="btn btn-primary col-12">목록 페이지</button></Link> */}
+              ><button className="btn btn-primary col-12">목록 페이지</button></Link>
             </div>
           </form>
     </div>
