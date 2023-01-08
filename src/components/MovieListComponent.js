@@ -2,10 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useLocation } from "react-router-dom";
+import NaverLogin from './NaverLogin';
 
 function MovieListComponent() {
     const location = useLocation(); //함수형 컴포넌트 전용(클래스 형 X)
-    console.log(location.state);
+    //console.log(location.state);
     const [state,setState] = useState(
         {
             movieList: [],
@@ -50,6 +51,7 @@ function MovieListComponent() {
             { name: '김일국', email: 'admin@test.com'},
             { name: '사용자', email: 'user@test.com'},
         ];
+        
         return (
             
             /* {memberList.map((member) => <div key={member.email}>{member.name}</div>)} */ 
@@ -57,10 +59,11 @@ function MovieListComponent() {
             <div className="container">
                 <h1><a href="#">리액트 프로그래밍</a></h1>{/* <!--#은 가상 링크 값이다.--> */}
                 <div className="row">
-                    <div className="col-12">{/* <!--부트스트랩 열column은 12개로 구성된다.--> */}                
-                        Looged in as : <span id="user">admin</span>
+                    <div className="col-12">{/* <!--부트스트랩 열column은 12개로 구성된다.--> */} 
+                        {/* Looged in as : <span id="user">admin</span>
                         <a href="#" className="btn btn-info">로그아웃</a>
-                        <a href="#" className="btn btn-success">네이버 로그인</a>
+                        <a href="#" className="btn btn-success">네이버 로그인</a> */}
+                        <NaverLogin />
                     </div>
                 </div>
             {/*  <!--여기까지가 개발자가 생각하는 헤더영역 이다.--> */}
