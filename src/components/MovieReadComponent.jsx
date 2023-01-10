@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom'; //함수형  컴포넌트 전용(클래스 형 X)
+import NaverLogin from './NaverLogin';
 
 function MovieReadComponent(props) {
     function addComma(num) {
@@ -13,9 +14,10 @@ function MovieReadComponent(props) {
         <h1><a href="#">리액트 프로그래밍</a></h1>{/* <!--#은 가상 링크 값이다.--> */}
         <div className="row">
             <div className="col-12">{/* <!--부트스트랩 열column은 12개로 구성된다.--> */}                
-                Looged in as : <span id="user">admin</span>
+                {/* Looged in as : <span id="user">admin</span>
                 <a href="#" className="btn btn-info">로그아웃</a>
-                <a href="#" className="btn btn-success">네이버 로그인</a>
+                <a href="#" className="btn btn-success">네이버 로그인</a> */}
+                <NaverLogin />
             </div>
         </div>{/* <!--여기까지가 개발자가 생각하는 헤더영역 이다.--> */}
         <br />
