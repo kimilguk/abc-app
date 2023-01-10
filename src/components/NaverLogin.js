@@ -22,9 +22,9 @@ function NaverLogin(props) {
             callbackHandle: true, //분리된 callback 페이지에서도 callback처리를 할 수 있는 값. 우리 작업은 한 페이지이기 때문에 무시
         })
         naverLogin.init();
-        // naverLogin 을 이용하여 사용자정보를 불러오는데 아래와 같이 naverLogin.user 처럼 직접 접근하여 추출 가능하다.
-        // 아래 부분이 콜백 처리이다. 콜백 데이터는 네이버에서 동의한 데이터만 추출 가능하다.
-        // async ~ [await는 여기선 안 보인다.]가 붙은 함수는 {내부 작업}이 마친 후 다른 작업이 진행 되는 동기 작업처럼 된다.
+        //아래 getLoginStatus()함수 부분이 콜백 처리이다. 콜백 데이터는 네이버에서 동의한 데이터만 추출 가능하다.
+        //naverLogin 객체를 이용하여 사용자정보를 불러오는데 아래와 같이 naverLogin.user 처럼 직접 접근하여 추출 가능하다.
+        //async ~ [await는 여기선 안 보인다.]가 붙은 함수는 {내부 작업}이 마친 후 다른 작업이 진행 되는 동기 작업처럼 된다.
         naverLogin.getLoginStatus(async function (status) {
             if (status) {
                 console.log("네이버에서 받은 status :", status);
