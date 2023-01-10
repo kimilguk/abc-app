@@ -51,9 +51,21 @@ function NaverLogin(props) {
 
     return ( //3항 연산자 식으로 로그인 전/후 화면을 구분한다.(아래)
         <>
-        {userInfo.user_name?<div>Looged in as :<span id="user">{userInfo.user_name} 님</span></div>:null}
-        {userInfo.user_name?<button onClick={logout} className="btn btn-info">로그아웃</button>: null }
-        {userInfo.user_name?<div id="naverIdLogin" style={{display:'none'}}/>:<div id="naverIdLogin" />}
+            {userInfo.user_name
+            ?
+            <div>
+                Looged in as :<span id="user">{userInfo.user_name} 님</span>
+                <button onClick={logout} className="btn btn-info">로그아웃</button>
+            </div>
+            :
+                null
+            }
+            {userInfo.user_name
+            ?
+                <div id="naverIdLogin" style={{display:'none'}}/>
+            :
+                <div id="naverIdLogin" />
+            }
         </>
     )
 }
