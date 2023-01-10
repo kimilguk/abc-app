@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 
 function NaverLogin(props) {
     //화면 갱신용 state 변수 추가(아래)
     const [userInfo,setUserInfo] = useState(
         {
-            user_name: '',
+            user_name: (localStorage.getItem('user_name'))?localStorage.getItem('user_name'):'',
             user_email: '',
             profile_image: '',
         }
     );
     const { naver } = window;
+    const tagRef = useRef();
     const NAVER_CLIENT_ID = 'YXJYaCx0fJnawGGVopsc'; 
     const NAVER_CALLBACK_URL = "http://127.0.0.1:3000";
     const initializeNaverLogin = () => {
@@ -34,6 +35,11 @@ function NaverLogin(props) {
                     profile_image: naverLogin.user.profile_image,
                 });
                 console.log("사용자 정보", naverLogin.user);
+                localStorage.clear();
+                localStorage.setItem('user_name', naverLogin.user.getName());
+                localStorage.setItem('user_email', naverLogin.user.getEmail());
+                localStorage.setItem('profile_image', naverLogin.user.profile_image);
+                console.log("로컬 스토리지 :", localStorage.getItem('user_name'));
             }
         })
     }
@@ -47,13 +53,22 @@ function NaverLogin(props) {
             user_email: '',
             profile_image: '',
         });
+        localStorage.clear();
     }
+    // onClick 이벤트 발생 시 useRef 를 통해 지정한  항목이 클릭 된다.
+    const clickNaverLogin = () => {
+		tagRef.current.children[0].click()
+	}
 
     return ( //3항 연산자 식으로 로그인 전/후 화면을 구분한다.(아래)
         <>
-        {userInfo.user_name?<div>Looged in as :<span id="user">{userInfo.user_name} 님</span></div>:null}
-        {userInfo.user_name?<button onClick={logout} className="btn btn-info">로그아웃</button>: null }
-        {userInfo.user_name?<div id="naverIdLogin" style={{display:'none'}}/>:<div id="naverIdLogin" />}
+        {userInfo.user_name?
+        <div>Looged in as :<span id="user">{userInfo.user_name} 님</span>
+        <button onClick={logout} className="btn btn-info">로그아웃</button>
+        </div>
+        :null}
+        {userInfo.user_name?null:<button onClick={clickNaverLogin} className="btn btn-success">네이버 로그인</button>}
+        <div id="naverIdLogin" ref={tagRef} style={{display:'none'}} />
         </>
     )
 }
