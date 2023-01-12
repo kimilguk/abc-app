@@ -1,6 +1,5 @@
 ### 리액트+넥스트js 프로그래밍 강의용 깃 소스 입니다.
-#### 넥스트js 2일차 소스입니다. 이번에는 빌드한 후 실제 배포(실행) yarn start 에서 정상작동 하도옥 수정
-#### 빌드한 후 실제 배포(실행) yarn start 에서는 pre-rendering 때문에 오동작 한다.
+#### 넥스트js 2일차 소스입니다. 이번에는 빌드한 후 실제 배포(실행) yarn start 에서 정상작동 하도옥 수정-실행 순서: yarn build으로 빌드한 후 yarn start로 실제 실행
 #### 네이버api 같은 경우 next-auth 라이브러리를 사용하면 dev에서는 정상 작동한다.(https://engschool.tistory.com/79) 단, localhost:3000 번만 작동 됨.(127.0.0.1 안됨)
 - 외부모듈 설치, pages/api/auth 생성, _app.tsx 세션감싸줌, NaverLogin.js 넥스트js용으로 변경, 일반로그인 기능 추가
 - MovieListComponent.js, MovieReadComponent.jsx파일 SSR 넥스트js 프리렌더에 맞게 수정
