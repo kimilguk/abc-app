@@ -1,18 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 //import { useLocation, Link } from 'react-router-dom'; //함수형  컴포넌트 전용(클래스 형 X)
 import Link from 'next/link';
 import {useRouter} from 'next/router';
 import NaverLogin from './NaverLogin';
 
 function MovieReadComponent(props) {
-    function addComma(num) {
+  //현재 데이터는 이전 리스트처럼 fetch함수로 데이터를 가져오지 않기 때문에 렌더링 후 바인딩 해야 한다.
+  //넥스트js는 서버사이드 실행이기 때문에 화면렝더링 후인 useEffcet함수에 addComma함수를 사용해야 에러가 없다.
+  function addComma(num) {
         var regexp = /\B(?=(\d{3})+(?!\d))/g;
         return num.toString().replace(regexp, ',');
     }
     //const location = useLocation(); //함수형 컴포넌트 전용(클래스 형 X)
     const location = useRouter(); //함수형 컴포넌트 전용(클래스 형 X)
-    const movie = JSON.parse(location.query.post); // 문자를 array로
-    console.log("movie", movie);
+    const [state,setState] = useState( //화면 렌더링 때 필요
+      {
+          movie: (location.query.post)?location.query.post:'',
+      }
+    );
+    useEffect(()=>{ //페이지 렌더링 후 실행
+      const parsingMovie = JSON.parse(state.movie);
+      parsingMovie['audiCnt'] = addComma(parsingMovie['audiCnt']);
+      parsingMovie['salesAmt'] = addComma(parsingMovie['salesAmt']);
+      parsingMovie['audiAcc'] = addComma(parsingMovie['audiAcc']);
+      parsingMovie['salesAcc'] = addComma(parsingMovie['salesAcc']);
+      setState({movie: parsingMovie,})
+      console.log("movie", state.movie);
+    },[]); 
     return (
         <div className="container">
         <h1><a href="#">넥스트js 프로그래밍</a></h1>{/* <!--#은 가상 링크 값이다.--> */}
@@ -25,48 +39,48 @@ function MovieReadComponent(props) {
             </div>
         </div>{/* <!--여기까지가 개발자가 생각하는 헤더영역 이다.--> */}
         <br />
-        <h2>{movie.movieNm}</h2>
+        <h2>{state.movie.movieNm}</h2>
         <form>
             <div className="row mb-3">{/* <!--mb는 마진바텀margin bottom 아래 여백크기--> */}
               <label htmlFor="rank" className="col-sm-2 col-form-label">순위</label>
               <div className="col-sm-10">{/* <!--column 에서 col-sm-10 은 가로12개의 분할에서 10개 영역을 차지한다. --> */}
-                <input type="text" className="form-control" id="rank" defaultValue={movie.rank} readOnly />
+                <input type="text" className="form-control" id="rank" defaultValue={state.movie.rank} readOnly />
               </div>
             </div>
             <div className="row mb-3">
               <label htmlFor="movieNm" className="col-sm-2 col-form-label">영화 제목</label>
               <div className="col-sm-10">
-                <input type="text" className="form-control" id="movieNm" defaultValue={movie.movieNm} readOnly />
+                <input type="text" className="form-control" id="movieNm" defaultValue={state.movie.movieNm} readOnly />
               </div>
             </div>
             <div className="row mb-3">
                 <label htmlFor="audiCnt" className="col-sm-2 col-form-label">일별 관객수</label>
                 <div className="col-sm-10">
-                  <input type="text" className="form-control" id="audiCnt" defaultValue={addComma(movie.audiCnt)} readOnly />
+                  <input type="text" className="form-control" id="audiCnt" defaultValue={state.movie.audiCnt} readOnly />
                 </div>
             </div>
             <div className="row mb-3">
                 <label htmlFor="salesAmt" className="col-sm-2 col-form-label">일별 매출액</label>
                 <div className="col-sm-10">
-                  <input type="text" className="form-control" id="salesAmt" defaultValue={addComma(movie.salesAmt)} readOnly />
+                  <input type="text" className="form-control" id="salesAmt" defaultValue={state.movie.salesAmt} readOnly />
                 </div>
             </div>
             <div className="row mb-3">
                 <label htmlFor="audiAcc" className="col-sm-2 col-form-label">누적 관객수</label>
                 <div className="col-sm-10">
-                  <input type="text" className="form-control" id="audiAcc" defaultValue={addComma(movie.audiAcc)} readOnly />
+                  <input type="text" className="form-control" id="audiAcc" defaultValue={state.movie.audiAcc} readOnly />
                 </div>
             </div>
             <div className="row mb-3">
                 <label htmlFor="salesAcc" className="col-sm-2 col-form-label">누적 매출액</label>
                 <div className="col-sm-10">
-                  <input type="text" className="form-control" id="salesAcc" defaultValue={addComma(movie.salesAcc)} readOnly />
+                  <input type="text" className="form-control" id="salesAcc" defaultValue={state.movie.salesAcc} readOnly />
                 </div>
             </div>
             <div className="row mb-3">
                 <label htmlFor="openDt" className="col-sm-2 col-form-label">개봉일</label>
                 <div className="col-sm-10">
-                  <input type="text" className="form-control" id="openDt" defaultValue={movie.openDt} readOnly />
+                  <input type="text" className="form-control" id="openDt" defaultValue={state.movie.openDt} readOnly />
                 </div>
             </div>
             <fieldset className="row mb-3">
