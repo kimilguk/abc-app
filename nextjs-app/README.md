@@ -1,5 +1,5 @@
 ### 리액트+넥스트js 프로그래밍 강의용 깃 소스 입니다.
-#### 넥스트js 1교시 소스입니다. 이번에는 yarn dev 에서 정상작동 하도옥 수정.
+#### 넥스트js 1일차 소스입니다. 이번에는 yarn dev 에서 정상작동 하도옥 수정.
 - pages 폴더안에 MovieListComponent.js, MovieReadComponent.jsx, NaverLogin.js 3개 리액트에 있던 소스복사해서 사용...
 #### 단, 네이버로그인API와 yarn build, yarn start 에러는 다음 시간에...
 - [교수의 모든 주차_교시별 강의용소스 링크](https://github.com/kimilguk/abc-app/branches/all)
