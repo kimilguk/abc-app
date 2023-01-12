@@ -1,5 +1,9 @@
 ### 리액트+넥스트js 프로그래밍 강의용 깃 소스 입니다.
-#### 14주차 1교시 작업소스입니다.
+#### 넥스트js 2교시 소스입니다. 이번에는 빌드한 후 실제 배포(실행) yarn start 에서 정상작동 하도옥 수정
+#### 빌드한 후 실제 배포(실행) yarn start 에서는 pre-rendering 때문에 오동작 한다.
+#### 네이버api 같은 경우 next-auth 라이브러리를 사용하면 dev에서는 정상 작동한다.(https://engschool.tistory.com/79) 단, localhost:3000 번만 작동 됨.(127.0.0.1 안됨)
+#### 네이버api 이전 시간소스는 yarn dev 에서 pre-rendering 때문에 오동작 한다.
+#### 배포버전에서 네이버api 를 제외한 일별 영화박스오피스는 정상작동 한다.
 - [교수의 모든 주차_교시별 강의용소스 링크](https://github.com/kimilguk/abc-app/branches/all)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
