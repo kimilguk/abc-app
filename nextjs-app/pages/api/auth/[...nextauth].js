@@ -3,10 +3,11 @@ import NaverProvider from "next-auth/providers/naver"
 import CredentialsProvider from "next-auth/providers/credentials";
 export default NextAuth({
   // Configure one or more authentication providers
+  secret: process.env.SECRET,
   providers: [
     NaverProvider({
-      clientId: 'xXGIgvZkDq8Wvx9GwnWP',
-      clientSecret: 'T4nuqJMBUY',
+      clientId: process.env.Naver_Client_ID,
+      clientSecret: process.env.Naver_Client_Secret,
     }),
     CredentialsProvider({
       //http://localhost:3000/api/auth/signin 로그인 기본 폼 제공
