@@ -21,7 +21,7 @@ function MovieListComponent() {
     };
     function getData() {
         const searchDate = (state.keyword).replace(/-/g,"");//정규표현식 변경조건: /시작...끝/g(글로벌-문서전체)
-        const URL = 'http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt='+searchDate;
+        const URL = 'https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt='+searchDate;
         fetch(URL)
             .then((response) => {
                     return response.json();//프로미스 객체로 리턴 반환 된다.(아래 then 으로)
