@@ -16,7 +16,7 @@ function NaverLogin(props) {
             :
                 <>
                 <button onClick={() => signIn()} className="btn btn-success">네이버 로그인</button>
-                <snal>&nbsp;</snal><Link href='http://localhost:3000/api/auth/signin'><button className="btn btn-info">일반로그인</button></Link>
+                <span>&nbsp;</span><button onClick={() => signIn()} className="btn btn-info">일반로그인</button>
                 </>
             }
         </>
