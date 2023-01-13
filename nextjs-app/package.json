@@ -6,7 +6,7 @@
     "//": "아래는 윈도우용 포트설정이고, 맥 또는 리눅스에서는 export PORT=3001",
     "dev": "set PORT=3001 && next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "set PORT=3001 && next start",
     "lint": "next lint"
   },
   "dependencies": {
