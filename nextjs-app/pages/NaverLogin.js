@@ -11,12 +11,16 @@ function NaverLogin(props) {
             ?
                 <div>
                     Looged in as :<span id="user">{session.user.email} 님</span>
-                    <button onClick={() => signOut()} className="btn btn-info">로그아웃</button>
+                        <button onClick={() => signOut({callbackUrl: `/MovieListComponent`})} 
+                        className="btn btn-info">로그아웃</button>
                 </div>
             :
                 <>
-                <button onClick={() => signIn()} className="btn btn-success">네이버 로그인</button>
-                <span>&nbsp;</span><button onClick={() => signIn()} className="btn btn-info">일반로그인</button>
+                    <button onClick={() => signIn("NaverProvider", {callbackUrl: `/MovieListComponent`})}
+                    className="btn btn-success">네이버 로그인</button>
+                    <span>&nbsp;</span>
+                    <button onClick={() => signIn("Credentials", {redirect: false,callbackUrl: `/MovieListComponent`})}
+                    className="btn btn-info">일반로그인</button>
                 </>
             }
         </>
