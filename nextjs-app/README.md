@@ -6,7 +6,7 @@
 his request has been blocked; the content must be served over HTTPS.
 - MovieListComponent.js 에러 수정 http://요청 에러 ( 공공 클라우드는 https를 사용하지 않는 경우가 많기 때문에 노드 js 서버단에서 요청을 별도로 만들어야 한다.)
 #### yarn start 배포버전에서 네이버api 와 일별영화박스오피스는 정상작동 한다.
-- 로그아웃 시 특정한 페이지로 이동하도록 변경 예정.
+- 로그아웃 시 특정한 페이지로 이동하도록 변경 처리.
 - [교수의 모든 주차_교시별 강의용소스 링크](https://github.com/kimilguk/abc-app/branches/all)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).

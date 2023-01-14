@@ -1,7 +1,6 @@
 //import React, { useEffect, useState, useRef } from 'react';
-import { SignpostOutlined } from "@mui/icons-material";
 import { useSession, signIn, signOut } from "next-auth/react"
-import Link from 'next/link';
+//import Link from 'next/link';
 
 function NaverLogin(props) {
     const { data: session } = useSession();
@@ -17,10 +16,10 @@ function NaverLogin(props) {
                 </div>
             :
                 <>
-                    <button onClick={() => signIn({callbackUrl: `/MovieListComponent`})}
+                    <button onClick={() => signIn("NaverProvider", {callbackUrl: `/MovieListComponent`})}
                     className="btn btn-success">네이버 로그인</button>
                     <span>&nbsp;</span>
-                    <button onClick={() => signIn({callbackUrl: `/MovieListComponent`})}
+                    <button onClick={() => signIn("Credentials", {redirect: false,callbackUrl: `/MovieListComponent`})}
                     className="btn btn-info">일반로그인</button>
                 </>
             }
