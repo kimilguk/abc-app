@@ -33,7 +33,7 @@ class MovieListComponent extends Component {
                 실패했을 경우(catch)에는 예외(error) 객체를 reject(실패-거부)합니다.
         */
         const searchDate = (this.state.keyword).replace(/-/g,"");//정규표현식 변경조건: /시작...끝/g(글로벌-문서전체)
-        const URL = 'http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt='+searchDate;
+        const URL = 'https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt='+searchDate;
         fetch(URL)
             .then((response) => {
                     //console.log(response.json());
