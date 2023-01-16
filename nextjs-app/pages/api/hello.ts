@@ -9,5 +9,8 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+  //console.log(req.query.name);
+  //let queryName: string = (req.query.name) as string;
+  //res.status(200).json({ name: queryName })
   res.status(200).json({ name: 'John Doe' })
 }
