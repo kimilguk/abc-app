@@ -1,3 +1,4 @@
+//import React from 'react';
 import React, { useEffect, useState } from 'react';
 //import { useLocation, Link } from 'react-router-dom'; //함수형  컴포넌트 전용(클래스 형 X)
 import Link from 'next/link';
@@ -6,19 +7,24 @@ import NaverLogin from './NaverLogin';
 
 function MovieReadComponent(props) {
   //현재 데이터는 이전 리스트처럼 fetch함수로 데이터를 가져오지 않기 때문에 렌더링 후 바인딩 해야 한다.
-  //넥스트js는 서버사이드 실행이기 때문에 화면렝더링 후인 useEffcet함수에 addComma함수를 사용해야 에러가 없다.
-  function addComma(num) {
+  //넥스트js는 서버사이드 실행이기 때문에 화면렌더링 후인 useEffcet함수에 addComma함수를 사용해야 에러가 없다.
+    function addComma(num) {
         var regexp = /\B(?=(\d{3})+(?!\d))/g;
         return num.toString().replace(regexp, ',');
     }
     //const location = useLocation(); //함수형 컴포넌트 전용(클래스 형 X)
     const location = useRouter(); //함수형 컴포넌트 전용(클래스 형 X)
+    //const movie = JSON.parse(location.query.post); // 문자를 array로
     const [state,setState] = useState( //화면 렌더링 때 필요
       {
           movie: (location.query.post)?location.query.post:'',
       }
     );
     useEffect(()=>{ //페이지 렌더링 후 실행
+      if (!state.movie) { //새로 고침 시 state 값이 사라지기 때문에 이전 페이지로 강제 이동=에러 방지용
+        location.push('/MovieListComponent');
+        return;
+      }
       const parsingMovie = JSON.parse(state.movie);
       parsingMovie['audiCnt'] = addComma(parsingMovie['audiCnt']);
       parsingMovie['salesAmt'] = addComma(parsingMovie['salesAmt']);
@@ -132,5 +138,28 @@ function MovieReadComponent(props) {
     </div>
     );
 }
-
+export async function getServerSideProps(context) { //이런 방식으로 1개 데이터를 가져올 수 있다.
+  console.log("자료: ", context.query['date']);
+  let searchDate = (context.query['date'])?context.query['date']:'20221225';
+  searchDate = searchDate.replace(/-/g,"");
+  const URL = 'https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt='+searchDate;
+  const res = await fetch(URL);
+  const data = await res.json();
+  console.log("API데이터: ", data);
+  console.log("에러데이터: ", data.faultInfo);
+  if (data.faultInfo) { //에러 발생 시 처리
+    return {
+      redirect: {
+        destination: '/MovieListComponent',
+        permanent: false, //임시이동
+      },
+    }
+  }else{
+    return {
+      props: {
+        data //movie : movie 축약
+      }
+    };
+  }
+}
 export default MovieReadComponent;
