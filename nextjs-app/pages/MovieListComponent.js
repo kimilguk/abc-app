@@ -123,7 +123,8 @@ function MovieListComponent() {
                                         keyword: state.keyword,
                                     },
                                   }}
-                                  as={'/MovieReadComponent'}
+                                  //as={'/MovieReadComponent'}
+                                  as={'/MovieReadComponent/?date='+state.keyword}
                                 >
                                     {movie.movieNm}
                                 </Link>
