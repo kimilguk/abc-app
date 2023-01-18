@@ -1,10 +1,10 @@
 ### 리액트+넥스트js 프로그래밍 강의용 깃 소스 입니다.
 #### 넥스트js 3일차 소스입니다. 이번에는 빌드한 후 실제 배포(실행)
-- 클라우드에 배포 및 에러 수정
-- HTTPS를 통해 로드되었지만 안전하지 않은 리소스를 요청했습니다.그의 요청이 차단되었습니다. 콘텐츠는 HTTPS를 통해 제공되어야 합니다.
--was loaded over HTTPS, but requested an insecure resource
-his request has been blocked; the content must be served over HTTPS.
-- MovieListComponent.js 에러 수정 http://요청 에러 ( 공공 클라우드는 https를 사용하지 않는 경우가 많기 때문에 노드 js 서버단에서 요청을 별도로 만들어야 한다.)
+- 네이버 로그인 api 수정 및 클라우드에 배포
+- 네이버api 이전 시간소스는 yarn dev 에서 pre-rendering 때문에 오동작 한다. SSR 넥스트js 프리렌더에 맞는 next-auth 외부 라이브러리 모듈을 사용하면 정상 작동한다. 또한, localhost 도 next-auth 에선 정상 작동한다.
+- 코딩 순서는 아래와 같다.(https://engschool.tistory.com/79) next-auth를 사용.
+- 외부모듈 설치, pages/api/auth 생성, _app.tsx 세션감싸줌, NaverLogin.js 넥스트js용으로 변경, 
+- 일반로그인 기능 추가, 상세페이지에서 로그인/로그아웃 시 특정 페이지로 이동하도록 처리 추가
 #### yarn start 배포버전에서 네이버api 와 일별영화박스오피스는 정상작동 한다.
 - 1페이지에 보여줄 일별박스오피스 개수를 검색에 추가(과제물)
 - [교수의 모든 주차_교시별 강의용소스 링크](https://github.com/kimilguk/abc-app/branches/all)
