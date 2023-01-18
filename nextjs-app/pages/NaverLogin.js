@@ -16,11 +16,11 @@ function NaverLogin(props) {
                 </div>
             :
                 <>
-                    <button onClick={() => signIn("NaverProvider", {callbackUrl: `/MovieListComponent`})}
+                    <button onClick={() => signIn("naver", {callbackUrl: `/MovieListComponent`})}
                     className="btn btn-success">네이버 로그인</button>
                     <span>&nbsp;</span>
-                    <button onClick={() => signIn("Credentials", {redirect: false,callbackUrl: `/MovieListComponent`})}
-                    className="btn btn-info">일반로그인</button>
+                    <button onClick={() => signIn("Credentials", {callbackUrl: `/MovieListComponent`})}
+                    className="btn btn-info">통합로그인</button>
                 </>
             }
         </>
