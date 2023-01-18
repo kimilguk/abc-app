@@ -37,12 +37,5 @@ export default NextAuth({
       }
     }),
   ],
-  /* callbacks: {
-    async session({ session, token, user }) {
-      // Send properties to the client, like an access_token from a provider.
-      session.accessToken = token.accessToken
-      console.log("세션 서버 콘솔: ", session);
-      return session
-    }
-  }, */
+  
 })

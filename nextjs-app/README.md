@@ -5,7 +5,7 @@
 - 코딩 순서는 아래와 같다.(https://engschool.tistory.com/79) next-auth를 사용.
 - 외부모듈 설치, pages/api/auth 생성, _app.tsx 세션감싸줌, NaverLogin.js 넥스트js용으로 변경, 
 - 일반로그인 기능 추가, 상세페이지에서 로그인/로그아웃 시 특정 페이지로 이동하도록 처리 추가
-#### yarn start 배포버전에서 네이버api 와 일별영화박스오피스는 정상작동 한다.
+#### yarn build 배포버전에서 네이버api 와 일별영화박스오피스는 정상작동 한다.
 - 1페이지에 보여줄 일별박스오피스 개수를 검색에 추가(과제물)
 - [교수의 모든 주차_교시별 강의용소스 링크](https://github.com/kimilguk/abc-app/branches/all)
 
