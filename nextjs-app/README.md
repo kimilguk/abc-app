@@ -1,5 +1,5 @@
 ### 리액트+넥스트js 프로그래밍 강의용 깃 소스 입니다.
-#### 넥스트js 3일차 소스입니다. 이번에는 빌드한 후 실제 배포(실행)
+#### 넥스트js 4일차 소스입니다. 이번에는 빌드한 후 실제 배포(실행)
 - 네이버 로그인 api 수정 및 클라우드에 배포
 - next-auth 내장된 로그인 폼을 커스터 마이징한다.
 - 기숲참조: https://next-auth.js.org/configuration/pages#credentials-sign-in
