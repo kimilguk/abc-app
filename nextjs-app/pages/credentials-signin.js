@@ -1,6 +1,6 @@
 import { getCsrfToken, getProviders, signIn} from "next-auth/react"
 
-export default function Login({ csrfToken, providers }) {
+export default function SignIn({ csrfToken, providers }) {
   return (
     <>
     {Object.values(providers).filter((provider) => provider.id != 'credentials').map((provider) => (
