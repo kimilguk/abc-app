@@ -6,6 +6,8 @@ import {useRouter} from 'next/router';
 import NaverLogin from './NaverLogin';
 
 function MovieReadComponent(props) {
+  //현재 데이터는 이전 리스트처럼 fetch함수로 데이터를 가져오지 않기 때문에 렌더링 후 바인딩 해야 한다.
+  //넥스트js는 서버사이드 실행이기 때문에 화면렌더링 후인 useEffcet함수에 addComma함수를 사용해야 에러가 없다.
     function addComma(num) {
         var regexp = /\B(?=(\d{3})+(?!\d))/g;
         return num.toString().replace(regexp, ',');
