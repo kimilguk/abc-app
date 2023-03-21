@@ -49,10 +49,13 @@ class MemberClass implements MemberInterface {
 }
 const memberObject = new MemberClass("kimilguk","kimilguk@email.com","1234");
 console.log(typeof memberObject, memberObject, memberObject.name)
-//interface 키워드(예약어)로 커스텀 타입 정의, 자바나 C#에 같은 기능이 있다.
+// interface 키워드(예약어)로 커스텀 타입 정의,
 interface MemberInterface {
     updateMember(login_id: Id, login_pw: password, new_pw: password):void;
 }
-memberObject.updateMember('kimilguk@email.com','1234','4321')
+// 자바나 C#에 같은 기능이 있지만, 사용하는 방법과 의미가 틀리다. 자바라면 아래처럼
+// let memberInterface:MemberInterface;
+// memberInterface.updateMember('kimilguk@email.com','1234','4321');
+memberObject.updateMember('kimilguk@email.com','1234','4321');
 console.log(typeof memberObject, memberObject, memberObject.name)
 export { }
