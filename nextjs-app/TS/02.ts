@@ -22,9 +22,23 @@ let member: MemberType = { // 회원 가입 받을 때 age 는 필수 값이 아
     login_pw: '1234'
 }
 console.log(typeof member, member, member.name)
-//class 키워드(예약어)로 커스텀 타입 정의, 자바나 C#에 같은 기능이 있다.
-class MemberClass implements MemberInterface {
-    name: string;
+// 대부분의 클래스에서 공통으로 사용할 항목을 만든다. 예, 등록,수정 날짜
+class CommonClass {
+    // insertDate: Date = new Date(); // 초기값으로 현재 날짜를 입력
+    // updateDate: Date | undefined; // 변수에 메모리 할당 없이도 진행 = updateDate?: Date
+    insertDate: Date = new Date(Date.now() + 9 * (60 * 60 * 1000)); // UTC로 표시가 되어서 9시간 추가
+    updateDate!: Date; // 초기값 없이 변수 선언 !(할당 어설션=값이 없더라도 에러없이 진행)
+}
+// class 키워드(예약어)로 커스텀 타입 정의, 자바나 C#에 같은 기능이 있다.
+class MemberClass extends CommonClass implements MemberInterface {
+    
+    private _name: string;    
+    public get name(): string {
+        return this._name;
+    }
+    public set name(value: string) {
+        this._name = value;
+    }
     login_id: Id;
     login_pw: password;
     age?: number; // member 객체를 사용할 때 ?로 age를 입력하지 않고, null 을 허용한다.
@@ -34,7 +48,8 @@ class MemberClass implements MemberInterface {
     login_pw: password,
     age?: number // member 객체를 사용할 때 ?로 age를 입력하지 않고, null 을 허용한다.
     ){
-        this.name = name;
+        super();
+        this._name = name;
         this.login_id = login_id;
         this.login_pw = login_pw;
         this.age = age;
@@ -43,6 +58,8 @@ class MemberClass implements MemberInterface {
         if(this.login_id == login_id && this.login_pw == login_pw) {
             console.log('인터페이스 실행 중...')
             this.login_pw = new_pw;
+            // this.updateDate = new Date(); // 수정 당시 시간을 입력
+            this.updateDate = new Date(Date.now() + 9 * (60 * 60 * 1000)); // UTC로 표시가 되어서 9시간 추가
         }
         // throw new Error("Method not implemented.");
     }
@@ -58,4 +75,5 @@ interface MemberInterface {
 // memberInterface.updateMember('kimilguk@email.com','1234','4321');
 memberObject.updateMember('kimilguk@email.com','1234','4321');
 console.log(typeof memberObject, memberObject, memberObject.name)
+console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
 export { }
