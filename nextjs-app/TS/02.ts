@@ -23,14 +23,15 @@ let member: MemberType = { // 회원 가입 받을 때 age 는 필수 값이 아
 }
 console.log(typeof member, member, member.name)
 // 대부분의 클래스에서 공통으로 사용할 항목을 만든다. 예, 등록,수정 날짜
-class CommonClass {
+abstract class CommonClass {
     // insertDate: Date = new Date(); // 초기값으로 현재 날짜를 입력
     // updateDate: Date | undefined; // 변수에 메모리 할당 없이도 진행 = updateDate?: Date
     insertDate: Date = new Date(Date.now() + 9 * (60 * 60 * 1000)); // UTC로 표시가 되어서 9시간 추가
     updateDate!: Date; // 초기값 없이 변수 선언 !(할당 어설션=값이 없더라도 에러없이 진행)
+    abstract updateMember(login_id: Id, login_pw: password, new_pw: password):void;
 }
 // class 키워드(예약어)로 커스텀 타입 정의, 자바나 C#에 같은 기능이 있다.
-class MemberClass extends CommonClass implements MemberInterface {
+class MemberClass extends CommonClass {
     
     private _name: string;    
     public get name(): string {
@@ -42,6 +43,8 @@ class MemberClass extends CommonClass implements MemberInterface {
     login_id: Id;
     login_pw: password;
     age?: number; // member 객체를 사용할 때 ?로 age를 입력하지 않고, null 을 허용한다.
+    // constructor(name: string,login_id: Id,login_pw: password);
+    // constructor(name: string,login_id: Id,login_pw: password,age:number);
     constructor( // 클래스 생성자 추가. new 키워드로 객체를 만들 때 자동 실행된다.
     name: string,
     login_id: Id,
@@ -54,7 +57,9 @@ class MemberClass extends CommonClass implements MemberInterface {
         this.login_pw = login_pw;
         this.age = age;
     }
-    updateMember(login_id: string, login_pw: string, new_pw: string): void {
+    updateMember(login_id: string, login_pw: string, new_pw: string):void;
+    updateMember(login_id: string, login_pw: string, new_pw: string, age: number):void;
+    updateMember(login_id: string, login_pw: string, new_pw: string, age?: number): void {
         if(this.login_id == login_id && this.login_pw == login_pw) {
             console.log('인터페이스 실행 중...')
             this.login_pw = new_pw;
@@ -75,5 +80,5 @@ interface MemberInterface {
 // memberInterface.updateMember('kimilguk@email.com','1234','4321');
 memberObject.updateMember('kimilguk@email.com','1234','4321');
 console.log(typeof memberObject, memberObject, memberObject.name)
-console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
-export { }
+console.log(Intl.DateTimeFormat().resolvedOptions().timeZone); // 현재 작업PC의 타임 존 확인
+export {}
