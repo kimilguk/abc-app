@@ -40,7 +40,7 @@ const drawerWidth: number = 240;
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
 }
-// 아래<AppBarProps> 제네릭타입을 사용한 이유는 styled함수 사용 시 open 변수는 boolean 타입만 올수 있도록 하기 위해서 이다.
+// 아래<AppBarProps>처럼 처음보는 제네릭 타입을 사용하면 styled함수에서 open 변수는 boolean 타입만 올 수 있도록 타입 지정을 명시한 것이다.(런타임 전 컴파일 단에서 에러 발견가능) 즉, 생략해도 실행에 문제는 없다.
 const AppBar = styled(MuiAppBar, { // styled 함수로 객체 속성의 사용자 스타일을 추가한다.
   shouldForwardProp: (prop) => prop !== 'open',
 })<AppBarProps>(({ theme, open }) => ({ // shouldForwardProp에 false 필터일 때 아래 사용자 스타일을 적용할 수 있다.
