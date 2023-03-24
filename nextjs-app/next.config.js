@@ -8,11 +8,11 @@ const nextConfig = {
         destination: "/MovieListComponent",
         permanent: false
       },
-      {
-        source: "/dashboard",
-        destination: "/dashboard/Dashboard",
-        permanent: false
-      }
+      // {
+      //   source: "/dashboard",
+      //   destination: "/dashboard/Dashboard",
+      //   permanent: false
+      // }
     ]
   }
 }
