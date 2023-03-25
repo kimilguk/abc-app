@@ -15,9 +15,12 @@
   max-width: var(--max-width);
   width: 100%;
   z-index: 2;
-  font-family: var(--font-mono);
+  font-family: var(--font-mono); /* css 절대단위: pt(글자포인트), px(글,이미지 모두 픽셀) */
+   /* 상대단위: rem(root기준 상대크기), em(상위계층기준 상대크기) */
 }
-
+/* vh = viewport height, vw = viewport width 현재 실행중인 창 크기에 맞춰 상대적 크기를 반환. 스크롤바포함 */
+/* % 는 태그 내부의 크기를 기준으로 값을 반환, 그래서, 콘텐츠가 영역보다 큰 스크롤 바는 포함되지 않는다. */
+/* css 선택자 3: 클래스 선택자로 . 도트를 사용. 계층형구조는 공백으로 처리한다. 예, .class명 tag명{스타일 구현} */
 .description a {
   display: flex;
   justify-content: center;
@@ -45,7 +48,7 @@
   width: var(--max-width);
   max-width: 100%;
 }
-
+/* 위 minmax(최솟값, 최댓값) 함수를 사용하면 값 범위 내에서 크기가 유연하게 처리된다.=화면크기에 따른 반응형 */
 .card {
   padding: 1rem 1.2rem;
   border-radius: var(--border-radius);
