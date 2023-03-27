@@ -70,3 +70,6 @@ export const secondaryListItems = (
     </ListItemButton>
   </React.Fragment>
 );
+// 빌드시 The defautl export is not a React Component in page 에러.
+// 즉, pages폴더에는 export default로 사용할 컴포넌트가 있어야 한다.
+export default function componentName() {} //위 문제 때문에 빈 함수(=클래스)로 컴포넌트를 만든다.
