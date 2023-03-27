@@ -1,6 +1,12 @@
 ### 리액트+넥스트js 프로그래밍 강의용 깃 소스 입니다.
 #### 넥스트js 기반 타입스트립트 수업용 자료를 추가 abc-app15_02 깃 소스 부터 적용
 - 2023.03.27(월): 넥스트js에서 yarn build 후 yarn start 사용
+
+```
+// 빌드시 The defautl export is not a React Component in page : dashboard/listitems.tsx에러.
+// 즉, pages폴더에는 export default로 사용할 컴포넌트가 있어야 한다. listitems.tsx 파일에 아래 추가
+export default function componentName() {} //위 문제 때문에 빈 함수(=클래스)로 컴포넌트를 추가한다.
+```
 - 2023.03.26(일): 넥스트js에서 SCSS 사용
 - 2023.03.25(토): 넥스트js에서 css 사용
 - 2023.03.24(금): 넥스트js 대시보드에서 인터페이스 사용
