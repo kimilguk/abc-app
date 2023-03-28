@@ -12,35 +12,35 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItemButton>
+    <ListItemButton href='/'>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+      <ListItemText primary="넥스트js 타입스크립트" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton href='/Home'>
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
-      <ListItemText primary="Orders" />
+      <ListItemText primary="SCSS=>@mui스타일" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton href='/dashboard/Chart'>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary="Customers" />
+      <ListItemText primary="챠트 컴포넌트" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton href='/dashboard/Orders'>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
-      <ListItemText primary="Reports" />
+      <ListItemText primary="표 컴포넌트" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton href='/dashboard/Deposits'>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
-      <ListItemText primary="Integrations" />
+      <ListItemText primary="타이포그라피" />
     </ListItemButton>
   </React.Fragment>
 );
