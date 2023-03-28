@@ -16,7 +16,7 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="넥스트js 타입스크립트" />
+      <ListItemText primary="넥스트js-타입스크립트" />
     </ListItemButton>
     <ListItemButton href='/Home'>
       <ListItemIcon>
