@@ -85,8 +85,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     },
   }),
 );
-import { useRouter } from 'next/router'; // 챠트 페이지의 페이지 경로가 필요해서 추가
 const mdTheme = createTheme();
+import { useRouter } from 'next/router'; // 챠트 페이지의 페이지 경로가 필요해서 추가
 // props로 component를 전달할 때 children 속성을 사용. props: { children: React.ReactNode } 추가
 export default function DashboardContent(props: { children: React.ReactNode }) {
   const [open, setOpen] = React.useState(true); // 브라우저 상태값을 false로 변경하면 메뉴가 닫힌다.
