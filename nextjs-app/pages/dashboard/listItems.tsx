@@ -18,11 +18,11 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="넥스트js-타입스크립트" />
     </ListItemButton>
-    <ListItemButton href='/Home'>
+    <ListItemButton href='/Home' target='_new'>
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
-      <ListItemText primary="SCSS=>@mui스타일" />
+      <ListItemText primary="SCSS스타일실습[새창]" />
     </ListItemButton>
     <ListItemButton href='/dashboard/Chart'>
       <ListItemIcon>
